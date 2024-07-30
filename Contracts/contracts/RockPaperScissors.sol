@@ -129,8 +129,6 @@ contract RockPaperScissors is GatewayCaller, Ownable {
             false
         );
         requestIdToAddress[requestID] = msg.sender;
-
-        // getRandomNumberAndSettleBets(numBets,msgSender,action,wager,stopGain,stopLoss);
     
     }
 
@@ -189,6 +187,7 @@ contract RockPaperScissors is GatewayCaller, Ownable {
             randomWords,
             i
         );
+        delete (rockPaperScissorsGames[playerAddress]);
         if (payout > 0) {
             _transferPayout(playerAddress, payout);
         }
